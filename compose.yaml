@@ -1,0 +1,12 @@
+services:
+  api:
+    image: ${APP_IMAGE:-shopsphere-api:manual-v1}
+    ports:
+      - "8085:5000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/health')"]
+      interval: 20s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
