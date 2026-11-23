@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.get("/")
 def home():
-    return jsonify(service="ShopSphere Order API", version="1.0")
+    return jsonify(service="ShopSphere Order API", version="1.1")
 
 @app.get("/health")
 def health():
